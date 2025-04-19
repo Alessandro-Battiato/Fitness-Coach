@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { useDrag } from "@use-gesture/react";
-import { useFrame, useThree } from "react-three-fiber";
 import * as THREE from "three";
+import { useFrame, useThree } from "@react-three/fiber";
 
 const RotatingModel: FC<{ children: React.ReactNode }> = ({ children }) => {
     const ref = React.useRef<THREE.Group>(null!);
