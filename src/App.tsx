@@ -1,9 +1,12 @@
+import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 
 function App() {
     return (
-        <main className="min-h-screen ">
+        <main className="min-h-screen">
             <Navbar />
+
+            <Hero />
         </main>
     );
 }
