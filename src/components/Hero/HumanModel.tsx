@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { GLTFResult } from "./types";
 import { useGLTF } from "@react-three/drei";
+import { GLTFResult, UseGLTFWithPreload } from "./types";
 import MuscleZone from "./MuscleZone";
 
 const HumanModel: FC<{ onSelect: (zone: string) => void }> = ({ onSelect }) => {
-    const { nodes } = useGLTF("/models/human.glb") as unknown as GLTFResult;
+    const { nodes } = useGLTF<GLTFResult>("/models/human.glb");
 
     return (
         <group dispose={null} scale={[0.02, 0.02, 0.02]}>
@@ -13,48 +13,36 @@ const HumanModel: FC<{ onSelect: (zone: string) => void }> = ({ onSelect }) => {
                 material={nodes.Retopo_highpoly.material}
             />
 
-            <MuscleZone mesh={nodes.Abs} name="Addome" onSelect={onSelect} />
-            <MuscleZone mesh={nodes.Chest} name="Petto" onSelect={onSelect} />
+            <MuscleZone mesh={nodes.Abs} name="Abs" onSelect={onSelect} />
+            <MuscleZone mesh={nodes.Chest} name="Chest" onSelect={onSelect} />
             <MuscleZone
                 mesh={nodes.Shoulders}
-                name="Spalle"
+                name="Shoulders"
                 onSelect={onSelect}
             />
-            <MuscleZone
-                mesh={nodes.Biceps}
-                name="Bicipiti"
-                onSelect={onSelect}
-            />
+            <MuscleZone mesh={nodes.Biceps} name="Biceps" onSelect={onSelect} />
             <MuscleZone
                 mesh={nodes.Triceps}
-                name="Tricipiti"
+                name="Triceps"
                 onSelect={onSelect}
             />
-            <MuscleZone mesh={nodes.Back} name="Schiena" onSelect={onSelect} />
+            <MuscleZone mesh={nodes.Back} name="Back" onSelect={onSelect} />
             <MuscleZone
                 mesh={nodes.Gluteus}
-                name="Glutei"
+                name="Gluteus"
                 onSelect={onSelect}
             />
             <MuscleZone
                 mesh={nodes.Hamstrings}
-                name="Femorali"
+                name="Hamstrings"
                 onSelect={onSelect}
             />
-            <MuscleZone
-                mesh={nodes.Quads}
-                name="Quadricipiti"
-                onSelect={onSelect}
-            />
-            <MuscleZone
-                mesh={nodes.Calves}
-                name="Polpacci"
-                onSelect={onSelect}
-            />
+            <MuscleZone mesh={nodes.Quads} name="Quads" onSelect={onSelect} />
+            <MuscleZone mesh={nodes.Calves} name="Calves" onSelect={onSelect} />
         </group>
     );
 };
 
-useGLTF.preload("/models/untitled.glb");
+(useGLTF as UseGLTFWithPreload).preload("/models/human.glb");
 
 export default HumanModel;
