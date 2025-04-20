@@ -2,9 +2,9 @@ import React, { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import HumanModel from "./HumanModel";
 import RotatingModel from "./RotatingModel";
+import Dialog from "../Dialog";
 import { Loader } from "lucide-react";
 import { Html } from "@react-three/drei";
-import { Dialog } from "@radix-ui/react-dialog";
 
 const Hero: React.FC = () => {
     const [selectedZone, setSelectedZone] = useState<string | null>(null);
@@ -52,12 +52,11 @@ const Hero: React.FC = () => {
                 </div>
             </div>
 
-            {/*selectedZone && (
-                <Dialog
-                    zone={selectedZone}
-                    onClose={() => setSelectedZone(null)}
-                />
-            )*/}
+            <Dialog
+                open={Boolean(selectedZone)}
+                onOpenChange={(open) => !open && setSelectedZone(null)}
+                muscleZone={selectedZone!}
+            />
         </section>
     );
 };
