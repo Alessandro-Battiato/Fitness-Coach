@@ -1,5 +1,3 @@
-"use client";
-
 import * as RadixDialog from "@radix-ui/react-dialog";
 import { Loader, X } from "lucide-react";
 import { useExercise } from "../../hooks/useExercise";
@@ -20,15 +18,37 @@ const Dialog: React.FC<DialogProps> = ({ open, onOpenChange, muscleZone }) => {
     return (
         <RadixDialog.Root open={open} onOpenChange={onOpenChange}>
             <RadixDialog.Portal>
-                <RadixDialog.Overlay className="fixed inset-0 bg-black/60" />
-                <RadixDialog.Content className="fixed left-1/2 top-1/2 w-[90vw] max-w-md max-h-[85vh] -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg overflow-auto shadow-lg outline-none">
-                    <RadixDialog.Title className="text-xl font-medium mb-2 capitalize">
+                <RadixDialog.Overlay className="fixed inset-0 bg-black/60 bg-blur backdrop-blur-sm" />
+
+                <RadixDialog.Content
+                    className="
+                        fixed inset-0
+                        w-screen h-screen
+                        bg-gradient-to-br from-slate-800 to-slate-900
+                        p-4
+                        overflow-auto
+                        shadow-none
+                        rounded-none
+                        border-none
+
+                        sm:left-1/2 sm:top-1/2
+                        sm:w-[90vw] sm:max-w-md sm:h-fit sm:max-h-[90vh]
+                        sm:-translate-x-1/2 sm:-translate-y-1/2
+                        sm:p-6
+                        sm:rounded-2xl
+                        sm:shadow-2xl
+                        sm:border sm:border-gray-700
+
+                        outline-none
+                    "
+                >
+                    <RadixDialog.Title className="text-2xl font-semibold mb-4 text-white capitalize">
                         {muscleZone} {data ? `- ${data.equipment}` : ""}
                     </RadixDialog.Title>
 
                     {isLoading && (
                         <div className="flex justify-center items-center h-32">
-                            <Loader className="animate-spin w-10 h-10 text-forestGreen" />
+                            <Loader className="animate-spin w-10 h-10 text-lime-400" />
                         </div>
                     )}
 
@@ -43,15 +63,15 @@ const Dialog: React.FC<DialogProps> = ({ open, onOpenChange, muscleZone }) => {
                             <img
                                 src={data.gifUrl}
                                 alt={`${muscleZone} exercise`}
-                                className="w-full rounded"
+                                className="w-full rounded-lg"
                             />
-                            <p className="text-gray-700">{data.instructions}</p>
+                            <p className="text-gray-400">{data.instructions}</p>
                         </div>
                     )}
 
                     <div className="mt-6 flex justify-end">
                         <RadixDialog.Close asChild>
-                            <button className="px-4 py-2 bg-forestGreen text-white rounded">
+                            <button className="px-4 py-2 bg-forestGreen hover:bg-lime-700 text-white font-medium rounded-lg transition-colors">
                                 Close
                             </button>
                         </RadixDialog.Close>
@@ -59,10 +79,16 @@ const Dialog: React.FC<DialogProps> = ({ open, onOpenChange, muscleZone }) => {
 
                     <RadixDialog.Close asChild>
                         <button
-                            className="absolute right-3 top-3 inline-flex items-center justify-center rounded-full hover:bg-gray-200 focus:outline-none"
+                            className="
+                                absolute right-3 top-3
+                                inline-flex items-center justify-center
+                                w-8 h-8 rounded-full
+                                hover:bg-gray-700 transition-colors
+                                focus:outline-none
+                            "
                             aria-label="Close"
                         >
-                            <X />
+                            <X className="text-gray-400" />
                         </button>
                     </RadixDialog.Close>
                 </RadixDialog.Content>
