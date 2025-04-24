@@ -3,17 +3,15 @@ import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 export interface GLTFResult extends GLTF {
     nodes: {
-        Abs: THREE.Mesh;
-        Back: THREE.Mesh;
-        Biceps: THREE.Mesh;
-        Calves: THREE.Mesh;
-        Chest: THREE.Mesh;
-        Gluteus: THREE.Mesh;
-        Hamstrings: THREE.Mesh;
-        Quads: THREE.Mesh;
-        Shoulders: THREE.Mesh;
-        Triceps: THREE.Mesh;
-        Retopo_highpoly: THREE.Mesh;
+        waist: THREE.Mesh;
+        back: THREE.Mesh;
+        upper_arms: THREE.Mesh;
+        chest: THREE.Mesh;
+        lower_legs: THREE.Mesh;
+        shoulders: THREE.Mesh;
+        human: THREE.Mesh;
+        lower_arms: THREE.Mesh;
+        upper_legs: THREE.Mesh;
     };
 }
 

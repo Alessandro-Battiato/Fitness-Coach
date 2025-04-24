@@ -7,38 +7,40 @@ const HumanModel: FC<{ onSelect: (zone: string) => void }> = ({ onSelect }) => {
     const { nodes } = useGLTF<GLTFResult>("/models/human.glb");
 
     return (
-        <group dispose={null} scale={[0.02, 0.02, 0.02]}>
+        <group dispose={null} position={[0, 0.2, 0]} scale={[0.02, 0.02, 0.02]}>
             <mesh
-                geometry={nodes.Retopo_highpoly.geometry}
-                material={nodes.Retopo_highpoly.material}
+                geometry={nodes.human.geometry}
+                material={nodes.human.material}
             />
 
-            <MuscleZone mesh={nodes.Abs} name="Abs" onSelect={onSelect} />
-            <MuscleZone mesh={nodes.Chest} name="Chest" onSelect={onSelect} />
+            <MuscleZone mesh={nodes.waist} name="Abs" onSelect={onSelect} />
+            <MuscleZone mesh={nodes.chest} name="Chest" onSelect={onSelect} />
             <MuscleZone
-                mesh={nodes.Shoulders}
+                mesh={nodes.shoulders}
                 name="Shoulders"
                 onSelect={onSelect}
             />
-            <MuscleZone mesh={nodes.Biceps} name="Biceps" onSelect={onSelect} />
             <MuscleZone
-                mesh={nodes.Triceps}
-                name="Triceps"
-                onSelect={onSelect}
-            />
-            <MuscleZone mesh={nodes.Back} name="Back" onSelect={onSelect} />
-            <MuscleZone
-                mesh={nodes.Gluteus}
-                name="Gluteus"
+                mesh={nodes.upper_arms}
+                name="Upper Arms"
                 onSelect={onSelect}
             />
             <MuscleZone
-                mesh={nodes.Hamstrings}
-                name="Hamstrings"
+                mesh={nodes.lower_arms}
+                name="Forearms"
                 onSelect={onSelect}
             />
-            <MuscleZone mesh={nodes.Quads} name="Quads" onSelect={onSelect} />
-            <MuscleZone mesh={nodes.Calves} name="Calves" onSelect={onSelect} />
+            <MuscleZone mesh={nodes.back} name="Back" onSelect={onSelect} />
+            <MuscleZone
+                mesh={nodes.upper_legs}
+                name="Upper legs"
+                onSelect={onSelect}
+            />
+            <MuscleZone
+                mesh={nodes.lower_legs}
+                name="Calves"
+                onSelect={onSelect}
+            />
         </group>
     );
 };
