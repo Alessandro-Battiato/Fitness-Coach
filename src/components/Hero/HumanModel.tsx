@@ -1,10 +1,18 @@
+import { useMemo } from "react";
 import { FC } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTFResult, UseGLTFWithPreload } from "./types";
+import * as THREE from "three";
 import MuscleZone from "./MuscleZone";
 
 const HumanModel: FC<{ onSelect: (zone: string) => void }> = ({ onSelect }) => {
     const { nodes } = useGLTF<GLTFResult>("/models/human.glb");
+
+    const meshNodes = useMemo(() => {
+        return Object.values(nodes)
+            .filter((obj) => obj.name !== "human" && obj.name !== "Scene")
+            .filter((obj): obj is THREE.Mesh => obj instanceof THREE.Mesh);
+    }, [nodes]);
 
     return (
         <group dispose={null} position={[0, 0.2, 0]} scale={[0.02, 0.02, 0.02]}>
@@ -13,14 +21,9 @@ const HumanModel: FC<{ onSelect: (zone: string) => void }> = ({ onSelect }) => {
                 material={nodes.human.material}
             />
 
-            <MuscleZone mesh={nodes.waist} onSelect={onSelect} />
-            <MuscleZone mesh={nodes.chest} onSelect={onSelect} />
-            <MuscleZone mesh={nodes.shoulders} onSelect={onSelect} />
-            <MuscleZone mesh={nodes.upper_arms} onSelect={onSelect} />
-            <MuscleZone mesh={nodes.lower_arms} onSelect={onSelect} />
-            <MuscleZone mesh={nodes.back} onSelect={onSelect} />
-            <MuscleZone mesh={nodes.upper_legs} onSelect={onSelect} />
-            <MuscleZone mesh={nodes.lower_legs} onSelect={onSelect} />
+            {meshNodes.map((mesh, i) => (
+                <MuscleZone key={i} mesh={mesh} onSelect={onSelect} />
+            ))}
         </group>
     );
 };
