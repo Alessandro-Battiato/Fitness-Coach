@@ -21,6 +21,7 @@ const Dialog: React.FC<DialogProps> = ({ open, onOpenChange, muscleZone }) => {
                 <RadixDialog.Overlay className="fixed inset-0 bg-black/60 bg-blur backdrop-blur-sm" />
 
                 <RadixDialog.Content
+                    aria-describedby={undefined}
                     className="
                         fixed inset-0
                         w-screen h-screen
