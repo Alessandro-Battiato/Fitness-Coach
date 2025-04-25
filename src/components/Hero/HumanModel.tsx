@@ -13,34 +13,14 @@ const HumanModel: FC<{ onSelect: (zone: string) => void }> = ({ onSelect }) => {
                 material={nodes.human.material}
             />
 
-            <MuscleZone mesh={nodes.waist} name="Abs" onSelect={onSelect} />
-            <MuscleZone mesh={nodes.chest} name="Chest" onSelect={onSelect} />
-            <MuscleZone
-                mesh={nodes.shoulders}
-                name="Shoulders"
-                onSelect={onSelect}
-            />
-            <MuscleZone
-                mesh={nodes.upper_arms}
-                name="Upper Arms"
-                onSelect={onSelect}
-            />
-            <MuscleZone
-                mesh={nodes.lower_arms}
-                name="Forearms"
-                onSelect={onSelect}
-            />
-            <MuscleZone mesh={nodes.back} name="Back" onSelect={onSelect} />
-            <MuscleZone
-                mesh={nodes.upper_legs}
-                name="Upper legs"
-                onSelect={onSelect}
-            />
-            <MuscleZone
-                mesh={nodes.lower_legs}
-                name="Calves"
-                onSelect={onSelect}
-            />
+            <MuscleZone mesh={nodes.waist} onSelect={onSelect} />
+            <MuscleZone mesh={nodes.chest} onSelect={onSelect} />
+            <MuscleZone mesh={nodes.shoulders} onSelect={onSelect} />
+            <MuscleZone mesh={nodes.upper_arms} onSelect={onSelect} />
+            <MuscleZone mesh={nodes.lower_arms} onSelect={onSelect} />
+            <MuscleZone mesh={nodes.back} onSelect={onSelect} />
+            <MuscleZone mesh={nodes.upper_legs} onSelect={onSelect} />
+            <MuscleZone mesh={nodes.lower_legs} onSelect={onSelect} />
         </group>
     );
 };

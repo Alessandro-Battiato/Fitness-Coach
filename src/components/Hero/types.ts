@@ -17,7 +17,6 @@ export interface GLTFResult extends GLTF {
 
 export type MuscleZoneProps = {
     mesh: THREE.Mesh;
-    name: string;
     onSelect: (zone: string) => void;
 };
 
