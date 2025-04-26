@@ -1,20 +1,45 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useCallback, useMemo, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import HumanModel from "./HumanModel";
 import RotatingModel from "./RotatingModel";
 import Dialog from "../Dialog";
-import { Loader } from "lucide-react";
+import { Loader, ArrowRight, RefreshCw } from "lucide-react";
 import { Html } from "@react-three/drei";
+import PlaceholderImage from "../PlaceholderImage";
 
 const Hero: React.FC = () => {
+    const workouts = useMemo(() => ["27 min", "45 min", "35 min"], []);
+
     const [selectedZone, setSelectedZone] = useState<string | null>(null);
+    const [seeds, setSeeds] = useState<number[]>(() =>
+        workouts.map(() => Math.random())
+    );
+    const [spinning, setSpinning] = useState(false);
+
+    const lastClick = useRef<number>(0);
+
+    const refreshSeeds = useCallback(
+        () => setSeeds(workouts.map(() => Math.random())),
+        [workouts]
+    );
+
+    const handleRefresh = () => {
+        const now = Date.now();
+
+        if (now - lastClick.current > 1000) {
+            lastClick.current = now;
+            setSpinning(true);
+            refreshSeeds();
+            setTimeout(() => setSpinning(false), 600);
+        }
+    };
 
     return (
-        <section className="relative w-full flex items-center justify-center px-6 py-16">
-            <div className="max-w-7xl w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-xl p-8">
-                <div className="flex flex-col-reverse lg:flex-row items-center gap-16">
-                    <div className="flex-1 flex flex-col items-start justify-center">
-                        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4">
+        <section className="relative w-full flex items-center justify-center px-6 py-12">
+            <div className="max-w-7xl w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-xl p-12">
+                <div className="flex flex-col-reverse lg:flex-row items-center">
+                    <div className="relative flex-1 flex flex-col items-start justify-center">
+                        <h1 className="text-4xl text-white md:text-5xl font-bold leading-tight mb-4">
                             Achieve Your Fitness Goals
                         </h1>
                         <p className="text-gray-300 max-w-lg mb-6">
@@ -23,17 +48,53 @@ const Hero: React.FC = () => {
                             beginner or an experienced athlete, we have a plan
                             for you.
                         </p>
-                        <button className="bg-forestGreen text-black font-semibold px-8 py-3 rounded-full hover:bg-lime-600 transition-colors duration-200">
-                            Get Start Today
+                        <button className="inline-flex items-center gap-3 bg-zinc-600 text-white font-semibold pl-6 pr-2 py-2 rounded-full hover:bg-zinc-700 transition-colors duration-200 group">
+                            <span>Get Started Today</span>
+                            <div className="bg-forestGreen rounded-full p-2 group-hover:bg-lime-600 transition-colors duration-200">
+                                <ArrowRight className="w-4 h-4 text-black" />
+                            </div>
                         </button>
+                        <div className="absolute top-80">
+                            <div className="flex items-center justify-between gap-2 mb-4">
+                                <h2 className="text-xl text-white md:text-2xl font-semibold">
+                                    Choose Workout and Start Exercising
+                                </h2>
+                                <button
+                                    onClick={handleRefresh}
+                                    className="focus:outline-none"
+                                >
+                                    <RefreshCw
+                                        className="w-6 h-6 text-gray-300"
+                                        style={{
+                                            animation: spinning
+                                                ? "spin 0.6s linear 1"
+                                                : "none",
+                                        }}
+                                    />
+                                </button>
+                            </div>
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                {workouts.map((text, idx) => (
+                                    <div
+                                        key={text}
+                                        className="bg-zinc-700 p-2 rounded-lg border border-zinc-800 hover:border-forestGreen cursor-pointer transition-colors"
+                                    >
+                                        <PlaceholderImage
+                                            text={text}
+                                            seed={seeds[idx]}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="flex-1 w-full h-[400px] sm:h-[500px] lg:h-[600px] relative">
-                        <Canvas camera={{ position: [0, 0.25, 2], fov: 40 }}>
+                    <div className="flex-1 h-[400px] sm:h-[500px] lg:h-[600px] relative">
+                        <Canvas camera={{ position: [0, 0, 2], fov: 45 }}>
                             <ambientLight intensity={0.7} />
                             <directionalLight
                                 position={[2, 2, 2]}
-                                intensity={1}
+                                intensity={2}
                             />
 
                             <Suspense
