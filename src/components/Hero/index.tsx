@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
         [workouts]
     );
 
-    const handleRefresh = () => {
+    const handleRefresh = useCallback(() => {
         const now = Date.now();
 
         if (now - lastClick.current > 1000) {
@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
             refreshSeeds();
             setTimeout(() => setSpinning(false), 600);
         }
-    };
+    }, [refreshSeeds]);
 
     return (
         <section className="relative w-full flex items-center justify-center px-6 py-12">
@@ -48,13 +48,13 @@ const Hero: React.FC = () => {
                             beginner or an experienced athlete, we have a plan
                             for you.
                         </p>
-                        <button className="inline-flex items-center gap-3 bg-zinc-600 text-white font-semibold pl-6 pr-2 py-2 rounded-full hover:bg-zinc-700 transition-colors duration-200 group">
+                        <button className="relative inline-flex items-center bg-zinc-600 text-white font-semibold pl-6 pr-14 py-3 rounded-full hover:bg-zinc-700 transition-colors duration-200 group">
                             <span>Get Started Today</span>
-                            <div className="bg-forestGreen rounded-full p-2 group-hover:bg-lime-600 transition-colors duration-200">
+                            <div className="absolute top-1/2 right-0 transform -translate-y-1/2 border-2 border-zinc-600 group-hover:border-zinc-700 bg-lime-500 rounded-full p-3.5 group-hover:bg-lime-600 transition-colors duration-200">
                                 <ArrowRight className="w-4 h-4 text-black" />
                             </div>
                         </button>
-                        <div className="absolute top-80">
+                        <div className="hidden lg:block lg:absolute lg:top-80">
                             <div className="flex items-center justify-between gap-2 mb-4">
                                 <h2 className="text-xl text-white md:text-2xl font-semibold">
                                     Choose Workout and Start Exercising
@@ -73,11 +73,11 @@ const Hero: React.FC = () => {
                                     />
                                 </button>
                             </div>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <div className="flex gap-4">
                                 {workouts.map((text, idx) => (
                                     <div
                                         key={text}
-                                        className="bg-zinc-700 p-2 rounded-lg border border-zinc-800 hover:border-forestGreen cursor-pointer transition-colors"
+                                        className="bg-zinc-700 p-2 rounded-lg border border-zinc-800 hover:border-forestGreen transition-colors"
                                     >
                                         <PlaceholderImage
                                             text={text}
@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="flex-1 h-[400px] sm:h-[500px] lg:h-[600px] relative">
+                    <div className="lg:flex-1 h-[600px] relative">
                         <Canvas camera={{ position: [0, 0, 2], fov: 45 }}>
                             <ambientLight intensity={0.7} />
                             <directionalLight
