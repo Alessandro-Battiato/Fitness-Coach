@@ -55,9 +55,9 @@ const Hero: React.FC = () => {
                             beginner or an experienced athlete, we have a plan
                             for you.
                         </p>
-                        <button className="relative inline-flex items-center bg-zinc-600 text-white font-semibold pl-6 pr-14 py-3 rounded-full hover:bg-zinc-700 transition-colors duration-200 group">
+                        <button className="relative inline-flex items-center bg-elegantZinc text-white font-semibold pl-6 pr-14 py-3 rounded-full hover:bg-hardZinc transition-colors duration-200 group">
                             <span>Get Started Today</span>
-                            <div className="absolute top-1/2 right-0 transform -translate-y-1/2 border-2 border-zinc-600 group-hover:border-zinc-700 bg-lime-500 rounded-full p-3.5 group-hover:bg-lime-600 transition-colors duration-200">
+                            <div className="absolute top-1/2 right-0 transform -translate-y-1/2 border-2 border-elegantZinc group-hover:border-hardZinc bg-lime-500 rounded-full p-3.5 group-hover:bg-lime-600 transition-colors duration-200">
                                 <ArrowRight className="w-4 h-4 text-black" />
                             </div>
                         </button>
@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
                                 {workouts.map((text, idx) => (
                                     <div
                                         key={text}
-                                        className="bg-zinc-700 p-2 rounded-lg border border-zinc-800 hover:border-forestGreen transition-colors"
+                                        className="bg-hardZinc p-2 rounded-lg border border-zinc-800 hover:border-forestGreen transition-colors"
                                     >
                                         <PlaceholderImage
                                             text={text}

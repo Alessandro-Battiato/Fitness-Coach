@@ -5,11 +5,8 @@ export default {
         extend: {
             colors: {
                 forestGreen: "#94DA22",
-                sunsetOrange: "#FC6441",
-                goldenYellow: "#FAB832",
-                elegantBlack: "#101828",
-                softWhite: "#F2F2F2",
-                charcoalGrey: "#475467",
+                elegantZinc: "#52525b",
+                hardZinc: "#3f3f46",
             },
         },
     },

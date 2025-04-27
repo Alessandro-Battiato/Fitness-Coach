@@ -20,10 +20,10 @@ const Navbar: React.FC = () => {
 
                 <div className="hidden lg:flex items-center space-x-8 text-white">
                     <a
-                        href="#journey"
+                        href="#goals"
                         className="hover:text-forestGreen transition-colors duration-200"
                     >
-                        Journey
+                        Goals
                     </a>
                     <a
                         href="#trainers"
@@ -78,11 +78,11 @@ const Navbar: React.FC = () => {
                 </button>
 
                 <a
-                    href="#journey"
+                    href="#goals"
                     onClick={toggleMenu}
                     className="text-white text-2xl hover:text-forestGreen transition-colors duration-200"
                 >
-                    Journey
+                    Goals
                 </a>
                 <a
                     href="#trainers"
