@@ -4,7 +4,7 @@ import { PromoCardProps } from "./types";
 
 const PromoCard: React.FC<PromoCardProps> = ({ title, description }) => {
     return (
-        <div className="max-w-7xl relative bg-hardZinc text-white rounded-2xl p-8 flex flex-col md:flex-row gap-8 lg:mt-16">
+        <div className="max-w-7xl relative bg-white/10 backdrop-blur-lg border border-white/20 text-white rounded-2xl p-8 flex flex-col md:flex-row gap-8 lg:mt-16">
             <button className="absolute top-4 right-4 p-2 bg-hardZinc rounded-full hover:bg-forestGreen transition">
                 <ArrowUpRight className="w-5 h-5" />
             </button>
