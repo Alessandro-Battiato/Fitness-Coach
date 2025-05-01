@@ -58,7 +58,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 
             {canShowImage && (
                 <img
-                    className="lg:absolute lg:top-24"
+                    className="lg:absolute lg:top-32"
                     alt="runner Image"
                     src="/assets/runnerImg.png"
                     width={250}

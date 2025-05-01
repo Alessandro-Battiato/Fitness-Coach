@@ -12,23 +12,24 @@ interface PexelsSearchResponse {
 
 export const usePlaceholderImage = (
     randomId: number,
-    enabled: boolean = true
+    query: string = "fitness",
+    queryKey: string = "fitnessImage"
 ) =>
     useQuery<string>({
-        queryKey: ["fitnessImage", randomId],
-        enabled,
+        queryKey: [queryKey, randomId],
+        enabled: true,
         queryFn: async () => {
             const { data }: AxiosResponse<PexelsSearchResponse> =
                 await pexelsApi.get(`/search`, {
                     params: {
-                        query: "fitness",
+                        query,
                         orientation: "square",
                         per_page: 20,
                     },
                 });
 
             if (!data.photos.length) {
-                throw new Error("No fitness images found");
+                throw new Error(`No ${query} images found`);
             }
             const idx = Math.floor(randomId * data.photos.length);
             return data.photos[idx].src.medium;
