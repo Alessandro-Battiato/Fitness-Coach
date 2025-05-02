@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Navbar, Hero, Goals } from "./components/index";
+import { Navbar, Hero, Goals, BackToTopButton } from "./components/index";
 
 const queryClient = new QueryClient();
 
@@ -12,6 +12,8 @@ function App() {
                 <Hero />
 
                 <Goals />
+
+                <BackToTopButton />
             </main>
         </QueryClientProvider>
     );
