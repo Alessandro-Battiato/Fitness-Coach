@@ -25,7 +25,7 @@ const trainers: TrainerData[] = [
 
 const Trainers: React.FC = () => {
     return (
-        <section className="py-12 px-6 mt-20 text-white" id="trainers">
+        <section className="py-28 px-6 text-white" id="trainers">
             <h2 className="text-3xl md:text-5xl text-center font-semibold mb-14">
                 Meet Our Trainers
             </h2>
