@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
                                 <ArrowRight className="w-4 h-4 text-black" />
                             </div>
                         </button>
-                        <div className="hidden lg:block lg:absolute lg:top-80 lg:z-20">
+                        <div className="hidden lg:block lg:absolute lg:top-72 lg:z-20">
                             <div className="flex items-center justify-between gap-2 mb-4">
                                 <h2 className="text-xl text-white md:text-2xl font-semibold">
                                     Choose Workout and Start Exercising
