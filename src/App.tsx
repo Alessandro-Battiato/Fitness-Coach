@@ -5,6 +5,7 @@ import {
     Goals,
     BackToTopButton,
     Trainers,
+    Testimonials,
 } from "./components/index";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,8 @@ function App() {
                 <Goals />
 
                 <Trainers />
+
+                <Testimonials />
 
                 <BackToTopButton />
             </main>

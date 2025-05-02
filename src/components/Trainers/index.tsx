@@ -27,7 +27,7 @@ const Trainers: React.FC = () => {
     return (
         <section className="py-12 px-6 mt-20 text-white" id="trainers">
             <h2 className="text-3xl md:text-5xl text-center font-semibold mb-14">
-                Meet Our Trainer
+                Meet Our Trainers
             </h2>
 
             <div className="max-w-7xl flex flex-col lg:flex-row gap-8 mx-auto">
