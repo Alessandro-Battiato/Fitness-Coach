@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
             <div className="max-w-7xl w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-xl p-6 md:p-12">
                 <div className="flex flex-col-reverse lg:flex-row items-center">
                     <div className="relative flex-1 flex flex-col items-start justify-center">
-                        <h1 className="text-4xl text-white md:text-5xl font-bold leading-tight mb-4">
+                        <h1 className="text-4xl text-white xl:text-5xl font-bold leading-tight mb-4">
                             Achieve Your Fitness Goals
                         </h1>
                         <p className="text-gray-300 max-w-lg mb-6">
@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
                                 <ArrowRight className="w-4 h-4 text-black" />
                             </div>
                         </button>
-                        <div className="hidden lg:block lg:absolute lg:top-80">
+                        <div className="hidden lg:block lg:absolute lg:top-80 lg:z-20">
                             <div className="flex items-center justify-between gap-2 mb-4">
                                 <h2 className="text-xl text-white md:text-2xl font-semibold">
                                     Choose Workout and Start Exercising
@@ -82,15 +82,11 @@ const Hero: React.FC = () => {
                             </div>
                             <div className="flex gap-4">
                                 {workouts.map((text, idx) => (
-                                    <div
-                                        key={text}
-                                        className="bg-hardZinc p-2 rounded-lg border border-zinc-800 hover:border-forestGreen transition-colors"
-                                    >
-                                        <PlaceholderImage
-                                            text={text}
-                                            seed={seeds[idx]}
-                                        />
-                                    </div>
+                                    <PlaceholderImage
+                                        key={idx}
+                                        text={text}
+                                        seed={seeds[idx]}
+                                    />
                                 ))}
                             </div>
                         </div>

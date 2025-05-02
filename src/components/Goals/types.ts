@@ -20,3 +20,7 @@ export interface FeatureCardProps {
     subtitle: string;
     image?: ReactNode;
 }
+
+export interface CarouselProps {
+    slideCount: number;
+}
