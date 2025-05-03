@@ -31,7 +31,7 @@ const testimonials: Testimonial[] = [
 const Testimonials: React.FC = () => {
     return (
         <section
-            className="min-h-screen flex items-center w-full text-white px-6"
+            className="min-h-screen flex items-center w-full text-white px-6 py-12 md:py-0"
             id="testimonials"
         >
             <div className="max-w-7xl mx-auto">
