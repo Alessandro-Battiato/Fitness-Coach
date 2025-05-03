@@ -30,12 +30,15 @@ const testimonials: Testimonial[] = [
 
 const Testimonials: React.FC = () => {
     return (
-        <section className="w-full text-white px-6 py-12" id="testimonials">
+        <section
+            className="min-h-screen flex items-center w-full text-white px-6"
+            id="testimonials"
+        >
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-3xl md:text-5xl text-center font-bold mb-2">
+                <h2 className="text-3xl md:text-5xl text-center font-semibold mb-4">
                     Success Stories
                 </h2>
-                <p className="text-base md:text-lg text-center mb-8">
+                <p className="text-base md:text-lg text-center mb-14">
                     Read what our clients have to say about their fitness
                     transformations.
                 </p>

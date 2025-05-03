@@ -25,7 +25,10 @@ const trainers: TrainerData[] = [
 
 const Trainers: React.FC = () => {
     return (
-        <section className="py-28 px-6 text-white" id="trainers">
+        <section
+            className="min-h-screen flex flex-col items-center justify-center px-6 text-white"
+            id="trainers"
+        >
             <h2 className="text-3xl md:text-5xl text-center font-semibold mb-14">
                 Meet Our Trainers
             </h2>
