@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 const Newsletter: React.FC = () => (
     <div className="relative overflow-visible bg-white/10 rounded-2xl backdrop-blur-lg border border-white/20 flex flex-col-reverse md:flex-row items-center justify-between p-8">
         <div className="flex flex-col items-start  md:text-left md:w-1/2 z-10 gap-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+            <h2 className="text-2xl md:text-4xl font-bold text-white leading-tight">
                 Achieve your fitness goals with personalized guidance from
                 expert trainers.
             </h2>

@@ -7,6 +7,7 @@ import {
     Trainers,
     Testimonials,
     Services,
+    Footer,
 } from "./components/index";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,8 @@ function App() {
 
                 <Services />
             </main>
+
+            <Footer />
 
             <BackToTopButton />
         </QueryClientProvider>

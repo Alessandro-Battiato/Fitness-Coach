@@ -4,4 +4,5 @@ export { default as Goals } from "../components/Goals/index";
 export { default as Trainers } from "../components/Trainers/index";
 export { default as Testimonials } from "../components/Testimonials/index";
 export { default as Services } from "../components/Services/index";
+export { default as Footer } from "../components/Footer/index";
 export { default as BackToTopButton } from "./BackToTopButton/index";
