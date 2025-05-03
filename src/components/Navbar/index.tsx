@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
     }, [isOpen]);
 
     return (
-        <>
+        <header>
             <nav className="flex items-center justify-between px-4 md:px-12 xl:px-32 py-4">
                 <img
                     src="/assets/logo.png"
@@ -112,7 +112,7 @@ const Navbar: React.FC = () => {
                     Get In Touch
                 </button>
             </div>
-        </>
+        </header>
     );
 };
 

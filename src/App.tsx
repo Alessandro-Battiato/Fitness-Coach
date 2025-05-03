@@ -6,6 +6,7 @@ import {
     BackToTopButton,
     Trainers,
     Testimonials,
+    Services,
 } from "./components/index";
 
 const queryClient = new QueryClient();
@@ -13,9 +14,9 @@ const queryClient = new QueryClient();
 function App() {
     return (
         <QueryClientProvider client={queryClient}>
-            <main className="min-h-screen">
-                <Navbar />
+            <Navbar />
 
+            <main className="min-h-screen">
                 <Hero />
 
                 <Goals />
@@ -24,8 +25,10 @@ function App() {
 
                 <Testimonials />
 
-                <BackToTopButton />
+                <Services />
             </main>
+
+            <BackToTopButton />
         </QueryClientProvider>
     );
 }
