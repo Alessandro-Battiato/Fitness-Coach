@@ -10,7 +10,7 @@ const RotatingModel: FC<{ children: React.ReactNode }> = ({ children }) => {
 
     useEffect(() => {
         const canvas = gl.domElement;
-        canvas.style.touchAction = "none";
+        canvas.style.touchAction = "pan-y";
         return () => {
             canvas.style.touchAction = "";
         };
@@ -30,6 +30,7 @@ const RotatingModel: FC<{ children: React.ReactNode }> = ({ children }) => {
         {
             pointerEvents: true,
             target: gl.domElement,
+            axis: "x",
         }
     );
 
